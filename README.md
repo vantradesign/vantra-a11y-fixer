@@ -3,6 +3,7 @@
 > Find contrast and ARIA issues on any page — and get a concrete fix proposal for
 > each one. Entirely local. No network calls, no telemetry, no account.
 
+[![CI](https://github.com/vantradesign/vantra-a11y-fixer/actions/workflows/ci.yml/badge.svg)](https://github.com/vantradesign/vantra-a11y-fixer/actions/workflows/ci.yml)
 [![License: MPL-2.0](https://img.shields.io/badge/license-MPL--2.0-021f94)](LICENSE)
 
 Existing accessibility extensions tell you *what* is broken. `vantra-a11y-fixer`
