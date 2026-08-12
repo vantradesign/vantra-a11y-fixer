@@ -1,0 +1,12 @@
+node_modules/
+dist/
+# Playwright test harness bundle, built from tests/harness/entry.ts
+dist-harness/
+coverage/
+.cache/
+*.log
+.DS_Store
+.vscode/
+.idea/
+test-results/
+playwright-report/

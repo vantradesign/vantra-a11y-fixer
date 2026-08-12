@@ -1,0 +1,435 @@
+{
+  "appName": {
+    "message": "Vantra Accessibility Fixer",
+    "description": "Extension name in the browser and the Web Store."
+  },
+  "appShortName": {
+    "message": "Vantra A11y"
+  },
+  "appDescription": {
+    "message": "Findet Kontrast- und ARIA-Issues und erzeugt konkrete Fix-Vorschläge. Vollständig lokal, ohne Netzwerk-Call."
+  },
+  "actionTitle": {
+    "message": "Vantra A11y – Seite prüfen",
+    "description": "Tooltip of the toolbar button."
+  },
+
+  "literal": {
+    "message": "$1",
+    "description": "Pass-through for text that comes from outside the catalog, e.g. an axe rule description. Must stay exactly \"$1\" in every locale."
+  },
+
+  "categoryContrast": { "message": "Kontrast" },
+  "categorySemantics": { "message": "Semantik & ARIA" },
+  "categoryStructure": { "message": "Struktur" },
+  "categoryInteraction": { "message": "Interaktion" },
+  "categoryManual": { "message": "Manuell prüfen" },
+
+  "severityCritical": { "message": "Kritisch" },
+  "severityHigh": { "message": "Hoch" },
+  "severityMedium": { "message": "Mittel" },
+  "severityAdvisory": { "message": "Hinweis" },
+  "severityManual": { "message": "Manuelle Prüfung nötig" },
+
+  "confidenceHigh": {
+    "message": "Berechnet",
+    "description": "Badge on a fix proposal that was computed deterministically."
+  },
+  "confidenceMedium": { "message": "Heuristik" },
+  "confidenceReview": { "message": "Bitte prüfen" },
+  "confidenceHintHigh": { "message": "Deterministisch berechnet und nachprüfbar." },
+  "confidenceHintMedium": {
+    "message": "Aus dem Kontext abgeleitet — meist richtig, aber bitte kurz prüfen."
+  },
+  "confidenceHintReview": {
+    "message": "Nur ein Ausgangspunkt. Nur du weißt, was das Element wirklich tut."
+  },
+
+  "wcag111": { "message": "Nicht-Text-Inhalt" },
+  "wcag131": { "message": "Info und Beziehungen" },
+  "wcag143": { "message": "Kontrast (Minimum)" },
+  "wcag146": { "message": "Kontrast (erhöht)" },
+  "wcag243": { "message": "Fokus-Reihenfolge" },
+  "wcag244": { "message": "Linkzweck (im Kontext)" },
+  "wcag258": { "message": "Zielgröße (Minimum)" },
+  "wcag412": { "message": "Name, Rolle, Wert" },
+  "wcagUnknown": { "message": "Siehe axe-Regel" },
+
+  "ruleColorContrastTitle": { "message": "Text hat zu wenig Kontrast zum Hintergrund" },
+  "ruleColorContrastExplanation": {
+    "message": "Der Text ist bei schlechten Lichtverhältnissen, auf günstigen Displays oder für Menschen mit Sehbeeinträchtigung schwer zu lesen."
+  },
+  "ruleColorContrastEnhancedTitle": { "message": "Text erreicht das erhöhte Kontrastziel nicht" },
+  "ruleColorContrastEnhancedExplanation": {
+    "message": "Für das AAA-Ziel ist ein stärkerer Kontrast nötig als aktuell vorhanden."
+  },
+  "ruleButtonNameTitle": { "message": "Button ohne zugänglichen Namen" },
+  "ruleButtonNameExplanation": {
+    "message": "Screenreader lesen nur „Schaltfläche“ vor. Ohne Namen ist nicht erkennbar, was der Button tut."
+  },
+  "ruleLinkNameTitle": { "message": "Link ohne erkennbaren Text" },
+  "ruleLinkNameExplanation": {
+    "message": "Der Link hat keinen Text, den Screenreader vorlesen können — das Ziel bleibt unklar."
+  },
+  "ruleImageAltTitle": { "message": "Bild ohne Alternativtext" },
+  "ruleImageAltExplanation": {
+    "message": "Wer das Bild nicht sehen kann, erfährt nichts über seinen Inhalt."
+  },
+  "ruleImageAltGuidance": {
+    "message": "Beschreibe, was auf dem Bild inhaltlich relevant ist. Ist das Bild rein dekorativ, setze alt=\"\" — dann wird es korrekt übersprungen."
+  },
+  "ruleLabelTitle": { "message": "Formularfeld ohne Beschriftung" },
+  "ruleLabelExplanation": {
+    "message": "Ohne verknüpfte Beschriftung ist unklar, was eingegeben werden soll — auch ein Klick auf den Text fokussiert das Feld dann nicht."
+  },
+  "ruleAriaAllowedAttrTitle": { "message": "ARIA-Attribut für diese Rolle nicht erlaubt" },
+  "ruleAriaAllowedAttrExplanation": {
+    "message": "Das Attribut wird von assistiven Technologien ignoriert oder falsch interpretiert."
+  },
+  "ruleAriaRequiredAttrTitle": { "message": "Pflicht-ARIA-Attribut fehlt" },
+  "ruleAriaRequiredAttrExplanation": {
+    "message": "Die gesetzte Rolle verlangt weitere Attribute, damit der Zustand des Elements vorgelesen werden kann."
+  },
+  "ruleAriaRolesTitle": { "message": "Ungültige ARIA-Rolle" },
+  "ruleAriaRolesExplanation": { "message": "Die angegebene Rolle existiert nicht und wird ignoriert." },
+  "ruleHeadingOrderTitle": { "message": "Überschriftenebenen springen" },
+  "ruleHeadingOrderExplanation": {
+    "message": "Screenreader-Nutzer:innen navigieren über Überschriften. Übersprungene Ebenen lassen Inhalt fehlen."
+  },
+  "ruleHeadingOrderGuidance": {
+    "message": "Passe die Ebene an die Gliederung an (h2 nach h1, h3 nach h2). Für die Optik CSS verwenden, nicht die Ebene."
+  },
+  "ruleRegionTitle": { "message": "Inhalt liegt außerhalb von Landmarks" },
+  "ruleRegionExplanation": {
+    "message": "Ohne main/nav/header lässt sich nicht direkt zum Hauptinhalt springen."
+  },
+  "ruleRegionGuidance": {
+    "message": "Umschließe den Hauptinhalt mit <main> und die Navigation mit <nav>."
+  },
+  "ruleLandmarkOneMainTitle": { "message": "Kein oder mehr als ein <main>" },
+  "ruleLandmarkOneMainExplanation": {
+    "message": "Genau ein main-Bereich pro Seite macht „zum Hauptinhalt springen“ verlässlich."
+  },
+  "ruleLandmarkOneMainGuidance": { "message": "Genau ein <main> pro Seite verwenden." },
+  "ruleTargetSizeTitle": { "message": "Klickfläche zu klein" },
+  "ruleTargetSizeExplanation": {
+    "message": "Kleine Ziele sind mit Touch oder eingeschränkter Motorik schwer zu treffen (mindestens 24 × 24 px)."
+  },
+  "ruleTargetSizeGuidance": {
+    "message": "Padding erhöhen oder Mindestgröße setzen, statt nur das Icon zu vergrößern."
+  },
+  "ruleTabindexTitle": { "message": "Positiver tabindex verändert die Fokusreihenfolge" },
+  "ruleTabindexExplanation": {
+    "message": "Werte über 0 reißen die Tastaturnavigation aus der visuellen Reihenfolge."
+  },
+  "ruleTabindexGuidance": {
+    "message": "tabindex=\"0\" verwenden und die Reihenfolge über die DOM-Struktur regeln."
+  },
+  "ruleFallbackExplanation": {
+    "message": "Diese Prüfung ist in Vantra noch nicht mit einer eigenen Erklärung hinterlegt. Der axe-Hinweis ist unten verlinkt."
+  },
+  "ruleFallbackGuidance": { "message": "Bitte manuell prüfen." },
+  "manualGuidanceGeneric": {
+    "message": "Für diesen Fall gibt es keinen automatisierten Vorschlag — bitte manuell prüfen."
+  },
+
+  "fixContrastDarkenText": { "message": "Textfarbe abdunkeln" },
+  "fixContrastLightenText": { "message": "Textfarbe aufhellen" },
+  "fixContrastDarkenBackground": { "message": "Hintergrund abdunkeln" },
+  "fixContrastLightenBackground": { "message": "Hintergrund aufhellen" },
+  "fixContrastRationale": {
+    "message": "Farbton und Sättigung bleiben unverändert; nur die Helligkeit wurde um $1 Prozentpunkte verschoben — die kleinste Änderung, die $2 erreicht.",
+    "description": "$1 = lightness delta in percentage points, $2 = required contrast ratio, e.g. \"4.50:1\"."
+  },
+  "fixContrastRationalePixel": {
+    "message": "Farbton und Sättigung bleiben unverändert; nur die Helligkeit wurde um $1 Prozentpunkte verschoben — die kleinste Änderung, die $2 erreicht. Der Hintergrund $3 stammt nicht aus dem CSS, sondern wurde an den Textpixeln der gerenderten Seite gemessen.",
+    "description": "$1 = lightness delta, $2 = required ratio, $3 = measured background hex."
+  },
+  "fixContrastRationalePixelRange": {
+    "message": "Farbton und Sättigung bleiben unverändert; nur die Helligkeit wurde um $1 Prozentpunkte verschoben — die kleinste Änderung, die $2 erreicht. Der Text liegt auf wechselndem Grund: gemessen wurde von $3 bis $4, gerechnet wird gegen die ungünstigste Stelle.",
+    "description": "$1 = lightness delta, $2 = required ratio, $3 = darkest hex, $4 = lightest hex."
+  },
+  "fixContrastPaletteLabel": { "message": "Auf nächstliegende Palettenfarbe wechseln" },
+  "fixContrastPaletteRationale": {
+    "message": "Bleibt innerhalb der freigegebenen Palette, weicht dafür stärker von der ursprünglichen Farbe ab als der berechnete Wert."
+  },
+
+  "fixAriaLabelLabel": {
+    "message": "aria-label=\"$1\"",
+    "description": "$1 = the proposed accessible name. Code, not prose — keep the attribute syntax."
+  },
+  "fixAriaLabelRationaleVisibleText": {
+    "message": "Abgeleitet aus dem sichtbaren Text im Element. Bitte prüfen — der Name sollte beschreiben, was passiert, wenn das Element aktiviert wird."
+  },
+  "fixAriaLabelRationaleTitleAttr": {
+    "message": "Abgeleitet aus dem title-Attribut. Bitte prüfen — der Name sollte beschreiben, was passiert, wenn das Element aktiviert wird."
+  },
+  "fixAriaLabelRationaleNestedAlt": {
+    "message": "Abgeleitet aus dem alt-Text des enthaltenen Bildes. Bitte prüfen — der Name sollte beschreiben, was passiert, wenn das Element aktiviert wird."
+  },
+  "fixAriaLabelRationaleValueAttr": {
+    "message": "Abgeleitet aus dem value-Attribut. Bitte prüfen — der Name sollte beschreiben, was passiert, wenn das Element aktiviert wird."
+  },
+  "fixAriaLabelRationaleIcon": {
+    "message": "Abgeleitet aus der Icon-Bezeichnung „$1“. Nur eine Vermutung aus dem Klassennamen — bitte prüfen, was das Element wirklich auslöst.",
+    "description": "$1 = the matched icon token, e.g. \"close\"."
+  },
+  "fixAriaLabelRationaleNearby": {
+    "message": "Abgeleitet aus Text in der Nähe des Elements. Bitte prüfen — der Name sollte beschreiben, was passiert, wenn das Element aktiviert wird."
+  },
+
+  "fixLabelForLabel": {
+    "message": "<label for=\"$1\">",
+    "description": "$1 = the id the label will point at. Code, not prose."
+  },
+  "fixLabelForRationaleNearby": {
+    "message": "Der Text steht bereits sichtbar neben dem Feld — ihn als <label> zu verknüpfen macht ihn auch klickbar und für Screenreader eindeutig."
+  },
+  "fixLabelForRationalePlaceholder": {
+    "message": "Abgeleitet aus dem placeholder. Ein Platzhalter verschwindet beim Tippen und ersetzt keine Beschriftung, taugt aber als Ausgangspunkt."
+  },
+  "fixFieldAriaLabelRationale": {
+    "message": "Zweitbeste Lösung, wenn keine sichtbare Beschriftung möglich ist. Ein sichtbares <label> ist immer vorzuziehen."
+  },
+
+  "fixRoleRedundantLabel": {
+    "message": "role=\"$1\" entfernen",
+    "description": "$1 = the redundant ARIA role."
+  },
+  "fixRoleRedundantRationale": {
+    "message": "<$1> hat diese Rolle bereits von sich aus. Das Attribut ist wirkungslos und kann weg.",
+    "description": "$1 = tag name, e.g. \"button\"."
+  },
+  "fixRoleRequiredAttrLabel": {
+    "message": "$1=\"$2\"",
+    "description": "$1 = attribute name, $2 = suggested value. Code, not prose."
+  },
+  "fixRoleRequiredAttrRationale": {
+    "message": "role=\"$1\" verlangt $2, sonst bleibt der Zustand für Screenreader unsichtbar. Der Wert muss bei jeder Interaktion mitgepflegt werden — ein natives Element bringt das von Haus aus mit.",
+    "description": "$1 = role, $2 = required attribute name."
+  },
+  "fixNativeButtonLabel": { "message": "Natives <button> verwenden" },
+  "fixNativeButtonRationale": {
+    "message": "Ein <button> bringt Fokussierbarkeit, Tastaturbedienung (Enter/Space) und die richtige Rolle mit. Beim div müssen tabindex, keydown-Handler und ARIA von Hand nachgebaut werden."
+  },
+
+  "fixTargetMinSizeLabel": {
+    "message": "Mindestgröße $1 × $1 px setzen",
+    "description": "$1 = required edge length in CSS pixels, e.g. \"24\"."
+  },
+  "fixTargetMinSizeRationale": {
+    "message": "Aktuell $1 × $2. Die Mindestgröße garantiert die Trefffläche unabhängig vom Inhalt. Prüfe, ob die Nachbarelemente dadurch verrutschen.",
+    "description": "$1 = current width, $2 = current height, both with unit."
+  },
+  "fixTargetMinSizeRationaleInlineBlock": {
+    "message": "Aktuell $1 × $2. Die Mindestgröße garantiert die Trefffläche unabhängig vom Inhalt — display: inline-block ist nötig, weil min-width und min-height auf reine Inline-Elemente keine Wirkung haben.",
+    "description": "$1 = current width, $2 = current height, both with unit."
+  },
+  "fixTargetPaddingLabel": { "message": "Trefffläche über Padding vergrößern" },
+  "fixTargetPaddingRationale": {
+    "message": "Padding wächst auf $1 oben und unten und $2 links und rechts, der optische Mittelpunkt bleibt also gleich. Das Element wächst dabei nach außen und kann den Textfluss verschieben.",
+    "description": "$1 = resulting block padding, $2 = resulting inline padding, both with unit."
+  },
+  "fixTargetPaddingRationaleBorderBox": {
+    "message": "Padding wächst auf $1 oben und unten und $2 links und rechts, der optische Mittelpunkt bleibt also gleich. Achtung: bei box-sizing: border-box mit fest gesetzter Breite oder Höhe vergrößert Padding das Element nicht — dann greift nur die Mindestgröße.",
+    "description": "$1 = resulting block padding, $2 = resulting inline padding, both with unit."
+  },
+
+  "btnScan": { "message": "Seite prüfen" },
+  "btnScanning": { "message": "Prüft …" },
+  "navSections": { "message": "Bereiche", "description": "Accessible name of the tab bar." },
+  "navOverview": { "message": "Übersicht" },
+  "navSettings": { "message": "Einstellungen" },
+  "navPrivacy": { "message": "Network-Zero", "description": "Product term — keep untranslated." },
+
+  "emptyIdleTitle": { "message": "Noch nichts geprüft." },
+  "emptyIdleBody": {
+    "message": "„Seite prüfen“ untersucht den aktuellen Tab mit axe-core und schlägt zu jedem gefundenen Issue eine konkrete Änderung vor — Kontrastwerte, ARIA-Attribute, Beschriftungen. Nichts verlässt deinen Browser."
+  },
+  "scanningBody": { "message": "Prüfung läuft …" },
+  "errorTitle": { "message": "Prüfung nicht möglich" },
+  "staleTitle": { "message": "Die Seite hat sich geändert." },
+  "staleBody": { "message": "Die vorherigen Befunde gelten nicht mehr. Bitte erneut prüfen." },
+  "summaryMeta": {
+    "message": "$1 · $2 Elemente · Ziel WCAG $3 · axe $4",
+    "description": "$1 = scan time, $2 = element count, $3 = WCAG level, $4 = axe-core version."
+  },
+  "previewsActiveOne": { "message": "1 Vorschau aktiv" },
+  "previewsActiveOther": { "message": "$1 Vorschauen aktiv" },
+  "btnRevertAll": { "message": "Alle zurücknehmen" },
+  "emptyResultTitle": { "message": "Keine automatisch prüfbaren Issues gefunden." },
+  "emptyResultBody": {
+    "message": "Das ist keine Konformitätsbestätigung. Automatisierte Prüfungen erfassen nur einen Teil der WCAG-Kriterien — Tastaturbedienung, sinnvolle Alternativtexte, Fokusreihenfolge und Verständlichkeit bleiben menschliche Beurteilung."
+  },
+  "sortedBySeverity": { "message": "Nach Schweregrad sortiert" },
+  "manualReviewNoteOne": {
+    "message": "1 Punkt konnte nicht automatisch entschieden werden und braucht eine manuelle Prüfung."
+  },
+  "manualReviewNoteOther": {
+    "message": "$1 Punkte konnten nicht automatisch entschieden werden und brauchen eine manuelle Prüfung."
+  },
+
+  "announceScanning": { "message": "Prüfung läuft" },
+  "announceDone": {
+    "message": "Prüfung abgeschlossen: $1 Issue-Gruppen, $2 Punkte zur manuellen Prüfung.",
+    "description": "Screen-reader announcement. $1 = cluster count, $2 = manual review count."
+  },
+  "announceError": { "message": "Prüfung fehlgeschlagen." },
+  "announceStale": { "message": "Die Seite hat sich geändert. Bitte erneut prüfen." },
+
+  "errorRestrictedPage": {
+    "message": "Diese Seite kann nicht geprüft werden. Browser-interne Seiten, der Web Store und PDF-Dokumente sind für Erweiterungen gesperrt."
+  },
+  "errorNoActiveTab": {
+    "message": "Kein aktiver Tab gefunden. Bitte einen Tab auswählen und erneut prüfen."
+  },
+  "errorTabNotAccessible": {
+    "message": "Für diesen Tab liegt keine Freigabe vor. Klicke auf das VANTRA-Symbol in der Symbolleiste, während der zu prüfende Tab im Vordergrund ist — die Erweiterung erhält Zugriff nur auf ausdrückliche Aufforderung, und nur auf diesen einen Tab.",
+    "description": "Shown when activeTab was never granted for the current tab."
+  },
+  "errorInjectionFailed": {
+    "message": "Die Prüfung konnte nicht gestartet werden. Bitte die Seite neu laden und erneut versuchen."
+  },
+  "errorAxeFailed": { "message": "Die Prüfung wurde abgebrochen. Details siehe unten." },
+
+  "privacyCaptures": {
+    "message": "Zur Kontrastmessung fotografiert die Erweiterung den sichtbaren Seitenbereich. Die Aufnahmen werden im Arbeitsspeicher ausgewertet, nicht gespeichert und nicht übertragen — technisch könnten sie es auch nicht, siehe die Regel unten. Die Messung lässt sich in den Einstellungen abschalten.",
+    "description": "Discloses the screenshot capability on the privacy page."
+  },
+
+  "settingsMeasureLegend": { "message": "Kontrastmessung" },
+  "settingsMeasurePixelContrast": {
+    "message": "Unklaren Kontrast an der gerenderten Seite messen"
+  },
+  "settingsMeasurePixelContrastHint": {
+    "message": "Liegt Text auf einem Verlauf, Bild oder Pseudo-Element, lässt sich der Kontrast nicht aus dem CSS berechnen. Die Erweiterung fotografiert dann den sichtbaren Bereich zweimal — einmal mit, einmal ohne Textfüllung — und misst den Untergrund direkt an den Textpixeln. Die Aufnahmen bleiben im Arbeitsspeicher. Bei langen Seiten dauert die Prüfung dadurch einige Sekunden länger."
+  },
+  "measuredClearedNote": {
+    "message": "$1 unklare Kontrastpunkte wurden an der gerenderten Seite gemessen und erfüllen die Anforderung; sie sind oben nicht aufgeführt.",
+    "description": "$1 = number of findings settled by pixel measurement."
+  },
+  "measuredClearedNoteOne": {
+    "message": "1 unklarer Kontrastpunkt wurde an der gerenderten Seite gemessen und erfüllt die Anforderung; er ist oben nicht aufgeführt."
+  },
+  "scanningMeasuring": {
+    "message": "Kontrast wird an der gerenderten Seite gemessen …"
+  },
+
+  "undecidedPseudoContent": {
+    "message": "Der Hintergrund wird von einem ::before- oder ::after-Pseudo-Element gemalt — auch von einem übergeordneten. Deren Geometrie ist für Skripte nicht lesbar, deshalb ist der Kontrast hier nicht berechenbar. Prüfe die Stelle im Browser gegen die tatsächlich sichtbare Fläche. Meist steckt eine einzige CSS-Klasse dahinter.",
+    "description": "Manual guidance when axe declined because a pseudo element paints the background."
+  },
+  "undecidedBgImage": {
+    "message": "Hinter dem Text liegt ein Hintergrundbild. Prüfe den Kontrast an der hellsten und an der dunkelsten Stelle des Bildes — beide müssen den Grenzwert erreichen."
+  },
+  "undecidedBgGradient": {
+    "message": "Hinter dem Text liegt ein Farbverlauf. Prüfe den Kontrast an beiden Enden des Verlaufs."
+  },
+  "undecidedBgOverlap": {
+    "message": "Ein anderes Element überlagert den Text. Prüfe, welche Fläche tatsächlich hinter dem Text liegt, und rechne gegen diese."
+  },
+  "undecidedImgNode": {
+    "message": "Der Text liegt über einem Bild-Element. Prüfe den Kontrast gegen die hellsten und dunkelsten Bildbereiche unter dem Text."
+  },
+  "undecidedFgAlpha": {
+    "message": "Die Textfarbe ist teiltransparent. Der wirksame Kontrast hängt davon ab, was durchscheint — setze die Farbe deckend oder prüfe von Hand."
+  },
+  "undecidedShortTextContent": {
+    "message": "Der Inhalt ist zu kurz, um sicher als Text erkannt zu werden. Handelt es sich um echten Text, prüfe den Kontrast von Hand; ist es reine Dekoration, gehört sie aus dem Textfluss."
+  },
+  "undecidedEqualRatio": {
+    "message": "Text- und Hintergrundfarbe sind identisch (1:1) — der Text ist unsichtbar. Ist das Absicht, entferne ihn aus dem Textfluss statt ihn farblich zu verstecken."
+  },
+  "undecidedComplexTextShadows": {
+    "message": "Der Text nutzt mehrere Schatten. Der wirksame Kontrast ergibt sich aus Schatten und Untergrund zusammen und muss von Hand geprüft werden."
+  },
+
+  "countElementsOne": { "message": "1 Element" },
+  "countElementsOther": { "message": "$1 Elemente" },
+  "countProposalsOne": { "message": "1 Fix-Vorschlag" },
+  "countProposalsOther": { "message": "$1 Fix-Vorschläge" },
+  "manualGuidanceTag": { "message": "manuelle Anleitung" },
+
+  "backToOverview": { "message": "Zurück zur Übersicht" },
+  "headingOccurrences": {
+    "message": "Betroffene Elemente ($1)",
+    "description": "$1 = number of affected elements."
+  },
+  "btnShowInPage": { "message": "Im Seiteninhalt zeigen" },
+  "headingProposals": { "message": "Fix-Vorschläge" },
+  "btnPreviewApply": { "message": "Vorschau anwenden" },
+  "btnPreviewActive": { "message": "Vorschau aktiv – zurücknehmen" },
+  "btnCopyCode": { "message": "Code kopieren" },
+  "btnCopied": { "message": "Kopiert ✓" },
+  "editableHint": {
+    "message": "Vor dem Einsetzen anpassen: nur du weißt, was das Element wirklich auslöst."
+  },
+  "headingManual": { "message": "Manuell umsetzen" },
+  "labelAxeRule": { "message": "axe-Regel" },
+
+  "diffCaption": { "message": "Vergleich: aktueller Zustand und Fix-Vorschlag" },
+  "diffColProperty": { "message": "Eigenschaft" },
+  "diffColCurrent": { "message": "Ist" },
+  "diffColProposed": { "message": "Vorschlag" },
+  "diffAbsent": {
+    "message": "(fehlt)",
+    "description": "Shown in the diff where an attribute does not exist yet."
+  },
+  "diffRemoved": {
+    "message": "(entfernt)",
+    "description": "Shown in the diff where the proposal deletes an attribute."
+  },
+  "metricContrast": { "message": "Kontrast" },
+  "metricTarget": { "message": "Ziel $1", "description": "$1 = required contrast ratio." },
+  "metricReached": { "message": "✓ erreicht" },
+  "metricNotReached": { "message": "✗ nicht erreicht" },
+
+  "settingsLevelLegend": { "message": "WCAG-Zielniveau" },
+  "settingsLevelHint": {
+    "message": "Bestimmt, welche axe-Regeln laufen und welchen Kontrast Fix-Vorschläge anstreben."
+  },
+  "settingsCategoriesLegend": { "message": "Kategorien" },
+  "settingsOverlayLegend": { "message": "Overlay" },
+  "settingsOverlayShowMarkers": { "message": "Marker auf der Seite anzeigen" },
+  "settingsOverlayHighContrast": {
+    "message": "Kontraststarke Marker (farbfehlsichtigkeitstauglich)"
+  },
+  "settingsFixLegend": { "message": "Fix-Vorschläge" },
+  "settingsPreferBackground": { "message": "Zuerst den Hintergrund anpassen (statt der Textfarbe)" },
+  "settingsSnapPalette": { "message": "Auf freigegebene Palette einrasten" },
+  "settingsPaletteLabel": { "message": "Palette (Hex-Werte, kommagetrennt)" },
+  "settingsModelHeading": { "message": "Lokales Modell" },
+  "settingsModelBody": {
+    "message": "Ab v2: ein lokales Vision-Modell für Alt-Text-Vorschläge und Kontrast auf Hintergrundbildern. Kommt als ausdrücklich von dir gestarteter Download mit Größenangabe und Prüfsumme — bis dahin gibt es hier nichts zu verwalten."
+  },
+
+  "privacyLead": {
+    "message": "Diese Erweiterung sendet keine Daten. Alle Prüfungen laufen in deinem Browser."
+  },
+  "privacyTrust": {
+    "message": "Das musst du uns nicht glauben — der Browser erzwingt es. Unten stehen die tatsächlichen Werte aus dem Manifest dieser Installation."
+  },
+  "privacyCspLabel": { "message": "Content-Security-Policy" },
+  "privacyCspNote": {
+    "message": "$1 blockiert jeden Netzwerkzugriff aus den Seiten dieser Erweiterung — auf Browser-Ebene, nicht per Selbstverpflichtung.",
+    "description": "$1 is rendered as inline code and contains the literal CSP directive."
+  },
+  "privacyPermissionsLabel": { "message": "Berechtigungen" },
+  "privacyHostPermissionsLabel": { "message": "Host-Berechtigungen" },
+  "privacyHostPermissionsNone": { "message": "keine — Zugriff nur auf den Tab, den du prüfst" },
+  "privacyVerifyHeading": { "message": "Selbst nachprüfen" },
+  "privacyVerifyStep1": {
+    "message": "$1 öffnen, bei dieser Erweiterung „Service Worker“ anklicken.",
+    "description": "$1 is rendered as inline code and contains the literal URL chrome://extensions."
+  },
+  "privacyVerifyStep2": { "message": "Im DevTools-Fenster den Tab „Network“ öffnen." },
+  "privacyVerifyStep3": { "message": "Eine Seite prüfen. Die Anfrageliste bleibt leer." },
+  "privacyFooter": {
+    "message": "axe-core ist mitgeliefert, nicht nachgeladen. Es gibt keine Analytics, kein Fehler-Reporting und keine externen Schriften."
+  },
+
+  "overlayTooltip": {
+    "message": "$1 — Details im Vantra-Panel",
+    "description": "$1 = issue title. Shown on the in-page marker."
+  }
+}

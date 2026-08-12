@@ -1,0 +1,30 @@
+{
+  "name": "@vantra-a11y/extension",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Manifest V3 extension: content script, service worker and Vue side panel.",
+  "license": "MPL-2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm run build:panel -- --watch",
+    "build": "pnpm run build:panel && pnpm run build:content",
+    "build:panel": "vite build",
+    "build:content": "vite build --config vite.content.config.ts",
+    "typecheck": "vue-tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@vantra-a11y/fix-engine": "workspace:*",
+    "@vantra-a11y/math": "workspace:*",
+    "@vantra-a11y/protocol": "workspace:*",
+    "axe-core": "^4.10.3",
+    "vue": "^3.5.41"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "tailwindcss": "^4.1.18",
+    "vite": "^7.1.12",
+    "vue-tsc": "^3.1.7"
+  }
+}

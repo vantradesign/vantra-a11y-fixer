@@ -1,0 +1,71 @@
+<!doctype html>
+<!--
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+  Contrast that CSS alone cannot settle.
+
+  Every band here paints its background from a ::before on an ancestor, which is
+  the pattern axe reports as `pseudoContent`: a pseudo element has no geometry a
+  script can read, so no amount of walking the tree reveals what is behind the
+  text. The two bands differ only in whether the result is actually acceptable —
+  which is precisely the distinction a measurement has to get right.
+-->
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>Kontrast über Pseudo-Elementen</title>
+    <style>
+      body {
+        margin: 0;
+        background: #ffffff;
+        font: 16px/1.5 system-ui, sans-serif;
+      }
+
+      .band {
+        position: relative;
+        padding: 32px 24px;
+      }
+
+      /* The surface the text really sits on. Invisible to axe. */
+      .band::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: #101010;
+      }
+
+      .band p {
+        position: relative;
+        margin: 0;
+      }
+
+      /* White on near-black: comfortably sufficient, but only measurement shows it. */
+      .sufficient p {
+        color: #ffffff;
+      }
+
+      .insufficient::before {
+        background: #f4f4f4;
+      }
+
+      /* Light grey on near-white: about 1.7:1, a genuine failure hiding behind
+         the same undecidable pattern. */
+      .insufficient p {
+        color: #bcbcbc;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="band sufficient">
+        <p id="ok">Heller Text auf dunkler Fläche, gemalt von einem Pseudo-Element.</p>
+      </div>
+
+      <div class="band insufficient">
+        <p id="bad">Blasser Text auf heller Fläche, gemalt von einem Pseudo-Element.</p>
+      </div>
+    </main>
+  </body>
+</html>

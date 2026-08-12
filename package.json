@@ -1,0 +1,47 @@
+{
+  "name": "vantra-a11y-fixer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Browser extension that detects contrast and ARIA issues and generates concrete, copyable fix proposals — fully local, no network calls.",
+  "license": "MPL-2.0",
+  "author": "Vantra Design <vantra@kauper.co>",
+  "homepage": "https://github.com/vantradesign/vantra-a11y-fixer#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vantradesign/vantra-a11y-fixer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vantradesign/vantra-a11y-fixer/issues"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "packageManager": "pnpm@11.20.0",
+  "scripts": {
+    "dev": "pnpm --filter @vantra-a11y/extension dev",
+    "build": "pnpm --filter @vantra-a11y/extension build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "pnpm -r --parallel typecheck && pnpm run typecheck:e2e",
+    "typecheck:e2e": "tsc -p tests/e2e --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build:harness": "pnpm --filter @vantra-a11y/extension exec vite build --config vite.harness.config.ts",
+    "test:e2e": "pnpm run build && pnpm run build:harness && playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "verify": "pnpm run lint && pnpm run typecheck && pnpm run test && pnpm run build"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.62.1",
+    "@types/chrome": "^0.1.31",
+    "@types/node": "^26.2.0",
+    "@vantra-a11y/protocol": "workspace:*",
+    "eslint": "^10.8.1",
+    "jsdom": "^30.0.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.66.0",
+    "vitest": "^4.1.10"
+  }
+}

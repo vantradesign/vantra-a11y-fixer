@@ -1,0 +1,20 @@
+{
+  "name": "@vantra-a11y/fix-engine",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Rule-based fix proposal generation. Pure functions, no DOM and no browser APIs, so it stays unit testable and reusable from CI tooling.",
+  "license": "MPL-2.0",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@vantra-a11y/math": "workspace:*",
+    "@vantra-a11y/protocol": "workspace:*"
+  }
+}

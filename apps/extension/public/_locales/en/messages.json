@@ -1,0 +1,435 @@
+{
+  "appName": {
+    "message": "Vantra Accessibility Fixer",
+    "description": "Extension name in the browser and the Web Store."
+  },
+  "appShortName": {
+    "message": "Vantra A11y"
+  },
+  "appDescription": {
+    "message": "Finds contrast and ARIA issues and generates concrete fix proposals. Fully local, no network calls."
+  },
+  "actionTitle": {
+    "message": "Vantra A11y – check this page",
+    "description": "Tooltip of the toolbar button."
+  },
+
+  "literal": {
+    "message": "$1",
+    "description": "Pass-through for text that comes from outside the catalog, e.g. an axe rule description. Must stay exactly \"$1\" in every locale."
+  },
+
+  "categoryContrast": { "message": "Contrast" },
+  "categorySemantics": { "message": "Semantics & ARIA" },
+  "categoryStructure": { "message": "Structure" },
+  "categoryInteraction": { "message": "Interaction" },
+  "categoryManual": { "message": "Check manually" },
+
+  "severityCritical": { "message": "Critical" },
+  "severityHigh": { "message": "High" },
+  "severityMedium": { "message": "Medium" },
+  "severityAdvisory": { "message": "Advisory" },
+  "severityManual": { "message": "Manual check required" },
+
+  "confidenceHigh": {
+    "message": "Computed",
+    "description": "Badge on a fix proposal that was computed deterministically."
+  },
+  "confidenceMedium": { "message": "Heuristic" },
+  "confidenceReview": { "message": "Please review" },
+  "confidenceHintHigh": { "message": "Deterministically computed and verifiable." },
+  "confidenceHintMedium": {
+    "message": "Derived from context — usually right, but worth a quick look."
+  },
+  "confidenceHintReview": {
+    "message": "A starting point only. Only you know what the element actually does."
+  },
+
+  "wcag111": { "message": "Non-text Content" },
+  "wcag131": { "message": "Info and Relationships" },
+  "wcag143": { "message": "Contrast (Minimum)" },
+  "wcag146": { "message": "Contrast (Enhanced)" },
+  "wcag243": { "message": "Focus Order" },
+  "wcag244": { "message": "Link Purpose (In Context)" },
+  "wcag258": { "message": "Target Size (Minimum)" },
+  "wcag412": { "message": "Name, Role, Value" },
+  "wcagUnknown": { "message": "See axe rule" },
+
+  "ruleColorContrastTitle": { "message": "Text contrast against the background is too low" },
+  "ruleColorContrastExplanation": {
+    "message": "The text is hard to read in poor lighting, on low-quality displays, or for people with low vision."
+  },
+  "ruleColorContrastEnhancedTitle": { "message": "Text does not meet the enhanced contrast target" },
+  "ruleColorContrastEnhancedExplanation": {
+    "message": "The AAA target requires stronger contrast than the current colours provide."
+  },
+  "ruleButtonNameTitle": { "message": "Button without an accessible name" },
+  "ruleButtonNameExplanation": {
+    "message": "Screen readers announce only “button”. Without a name there is no way to tell what it does."
+  },
+  "ruleLinkNameTitle": { "message": "Link without discernible text" },
+  "ruleLinkNameExplanation": {
+    "message": "The link has no text for screen readers to announce — its destination stays unclear."
+  },
+  "ruleImageAltTitle": { "message": "Image without alternative text" },
+  "ruleImageAltExplanation": {
+    "message": "Anyone who cannot see the image learns nothing about its content."
+  },
+  "ruleImageAltGuidance": {
+    "message": "Describe what matters about the image. If it is purely decorative, set alt=\"\" so it is skipped correctly."
+  },
+  "ruleLabelTitle": { "message": "Form field without a label" },
+  "ruleLabelExplanation": {
+    "message": "Without an associated label it is unclear what to enter — and clicking the text will not focus the field."
+  },
+  "ruleAriaAllowedAttrTitle": { "message": "ARIA attribute not allowed for this role" },
+  "ruleAriaAllowedAttrExplanation": {
+    "message": "Assistive technology either ignores the attribute or interprets it incorrectly."
+  },
+  "ruleAriaRequiredAttrTitle": { "message": "Required ARIA attribute is missing" },
+  "ruleAriaRequiredAttrExplanation": {
+    "message": "The role in use requires further attributes so the element's state can be announced."
+  },
+  "ruleAriaRolesTitle": { "message": "Invalid ARIA role" },
+  "ruleAriaRolesExplanation": { "message": "The given role does not exist and is ignored." },
+  "ruleHeadingOrderTitle": { "message": "Heading levels skip a step" },
+  "ruleHeadingOrderExplanation": {
+    "message": "Screen reader users navigate by headings. Skipped levels make content go missing."
+  },
+  "ruleHeadingOrderGuidance": {
+    "message": "Match the level to the outline (h2 after h1, h3 after h2). Use CSS for the visual size, not the level."
+  },
+  "ruleRegionTitle": { "message": "Content sits outside any landmark" },
+  "ruleRegionExplanation": {
+    "message": "Without main/nav/header there is no way to jump straight to the main content."
+  },
+  "ruleRegionGuidance": {
+    "message": "Wrap the main content in <main> and the navigation in <nav>."
+  },
+  "ruleLandmarkOneMainTitle": { "message": "No <main>, or more than one" },
+  "ruleLandmarkOneMainExplanation": {
+    "message": "Exactly one main region per page makes “skip to main content” reliable."
+  },
+  "ruleLandmarkOneMainGuidance": { "message": "Use exactly one <main> per page." },
+  "ruleTargetSizeTitle": { "message": "Click target is too small" },
+  "ruleTargetSizeExplanation": {
+    "message": "Small targets are hard to hit by touch or with limited motor control (at least 24 × 24 px)."
+  },
+  "ruleTargetSizeGuidance": {
+    "message": "Increase padding or set a minimum size, rather than only enlarging the icon."
+  },
+  "ruleTabindexTitle": { "message": "Positive tabindex changes the focus order" },
+  "ruleTabindexExplanation": {
+    "message": "Values above 0 pull keyboard navigation out of the visual order."
+  },
+  "ruleTabindexGuidance": {
+    "message": "Use tabindex=\"0\" and control the order through the DOM structure."
+  },
+  "ruleFallbackExplanation": {
+    "message": "Vantra does not carry its own explanation for this check yet. The axe guidance is linked below."
+  },
+  "ruleFallbackGuidance": { "message": "Please check manually." },
+  "manualGuidanceGeneric": {
+    "message": "There is no automated proposal for this case — please check it manually."
+  },
+
+  "fixContrastDarkenText": { "message": "Darken the text colour" },
+  "fixContrastLightenText": { "message": "Lighten the text colour" },
+  "fixContrastDarkenBackground": { "message": "Darken the background" },
+  "fixContrastLightenBackground": { "message": "Lighten the background" },
+  "fixContrastRationale": {
+    "message": "Hue and saturation stay untouched; only lightness moved by $1 percentage points — the smallest change that reaches $2.",
+    "description": "$1 = lightness delta in percentage points, $2 = required contrast ratio, e.g. \"4.50:1\"."
+  },
+  "fixContrastRationalePixel": {
+    "message": "Hue and saturation are unchanged; only lightness moved by $1 percentage points — the smallest change that reaches $2. The background $3 does not come from the CSS: it was measured at the text pixels of the rendered page.",
+    "description": "$1 = lightness delta, $2 = required ratio, $3 = measured background hex."
+  },
+  "fixContrastRationalePixelRange": {
+    "message": "Hue and saturation are unchanged; only lightness moved by $1 percentage points — the smallest change that reaches $2. The text sits on a varying surface: measured from $3 to $4, and calculated against the least favourable part.",
+    "description": "$1 = lightness delta, $2 = required ratio, $3 = darkest hex, $4 = lightest hex."
+  },
+  "fixContrastPaletteLabel": { "message": "Switch to the nearest palette colour" },
+  "fixContrastPaletteRationale": {
+    "message": "Stays inside the approved palette, but deviates further from the original colour than the computed value."
+  },
+
+  "fixAriaLabelLabel": {
+    "message": "aria-label=\"$1\"",
+    "description": "$1 = the proposed accessible name. Code, not prose — keep the attribute syntax."
+  },
+  "fixAriaLabelRationaleVisibleText": {
+    "message": "Derived from the visible text inside the element. Please review — the name should describe what happens when the element is activated."
+  },
+  "fixAriaLabelRationaleTitleAttr": {
+    "message": "Derived from the title attribute. Please review — the name should describe what happens when the element is activated."
+  },
+  "fixAriaLabelRationaleNestedAlt": {
+    "message": "Derived from the alt text of the nested image. Please review — the name should describe what happens when the element is activated."
+  },
+  "fixAriaLabelRationaleValueAttr": {
+    "message": "Derived from the value attribute. Please review — the name should describe what happens when the element is activated."
+  },
+  "fixAriaLabelRationaleIcon": {
+    "message": "Derived from the icon name “$1”. This is a guess from a class name — please check what the element actually triggers.",
+    "description": "$1 = the matched icon token, e.g. \"close\"."
+  },
+  "fixAriaLabelRationaleNearby": {
+    "message": "Derived from text near the element. Please review — the name should describe what happens when the element is activated."
+  },
+
+  "fixLabelForLabel": {
+    "message": "<label for=\"$1\">",
+    "description": "$1 = the id the label will point at. Code, not prose."
+  },
+  "fixLabelForRationaleNearby": {
+    "message": "The text is already visible next to the field — linking it as a <label> also makes it clickable and unambiguous for screen readers."
+  },
+  "fixLabelForRationalePlaceholder": {
+    "message": "Derived from the placeholder. A placeholder disappears as soon as you type and is no substitute for a label, but it works as a starting point."
+  },
+  "fixFieldAriaLabelRationale": {
+    "message": "Second best if no visible label is possible. A visible <label> is always preferable."
+  },
+
+  "fixRoleRedundantLabel": {
+    "message": "Remove role=\"$1\"",
+    "description": "$1 = the redundant ARIA role."
+  },
+  "fixRoleRedundantRationale": {
+    "message": "<$1> already carries this role on its own. The attribute has no effect and can go.",
+    "description": "$1 = tag name, e.g. \"button\"."
+  },
+  "fixRoleRequiredAttrLabel": {
+    "message": "$1=\"$2\"",
+    "description": "$1 = attribute name, $2 = suggested value. Code, not prose."
+  },
+  "fixRoleRequiredAttrRationale": {
+    "message": "role=\"$1\" requires $2, otherwise the state stays invisible to screen readers. The value has to be kept in sync on every interaction — a native element does that for you.",
+    "description": "$1 = role, $2 = required attribute name."
+  },
+  "fixNativeButtonLabel": { "message": "Use a native <button>" },
+  "fixNativeButtonRationale": {
+    "message": "A <button> comes with focusability, keyboard operation (Enter/Space) and the right role. With a div you have to rebuild tabindex, keydown handlers and ARIA by hand."
+  },
+
+  "fixTargetMinSizeLabel": {
+    "message": "Set a minimum size of $1 × $1 px",
+    "description": "$1 = required edge length in CSS pixels, e.g. \"24\"."
+  },
+  "fixTargetMinSizeRationale": {
+    "message": "Currently $1 × $2. A minimum size guarantees the target area regardless of content. Check whether neighbouring elements shift as a result.",
+    "description": "$1 = current width, $2 = current height, both with unit."
+  },
+  "fixTargetMinSizeRationaleInlineBlock": {
+    "message": "Currently $1 × $2. A minimum size guarantees the target area regardless of content — display: inline-block is required because min-width and min-height have no effect on pure inline elements.",
+    "description": "$1 = current width, $2 = current height, both with unit."
+  },
+  "fixTargetPaddingLabel": { "message": "Enlarge the target area with padding" },
+  "fixTargetPaddingRationale": {
+    "message": "Padding grows to $1 top and bottom and $2 left and right, so the optical centre stays put. The element grows outwards and may shift the surrounding text flow.",
+    "description": "$1 = resulting block padding, $2 = resulting inline padding, both with unit."
+  },
+  "fixTargetPaddingRationaleBorderBox": {
+    "message": "Padding grows to $1 top and bottom and $2 left and right, so the optical centre stays put. Note: with box-sizing: border-box and an explicit width or height, padding does not enlarge the element — only the minimum size will.",
+    "description": "$1 = resulting block padding, $2 = resulting inline padding, both with unit."
+  },
+
+  "btnScan": { "message": "Check page" },
+  "btnScanning": { "message": "Checking …" },
+  "navSections": { "message": "Sections", "description": "Accessible name of the tab bar." },
+  "navOverview": { "message": "Overview" },
+  "navSettings": { "message": "Settings" },
+  "navPrivacy": { "message": "Network-Zero", "description": "Product term — keep untranslated." },
+
+  "emptyIdleTitle": { "message": "Nothing checked yet." },
+  "emptyIdleBody": {
+    "message": "“Check page” runs axe-core against the current tab and proposes a concrete change for every issue it finds — contrast values, ARIA attributes, labels. Nothing leaves your browser."
+  },
+  "scanningBody": { "message": "Check in progress …" },
+  "errorTitle": { "message": "Cannot check this page" },
+  "staleTitle": { "message": "The page has changed." },
+  "staleBody": { "message": "The previous findings no longer apply. Please check again." },
+  "summaryMeta": {
+    "message": "$1 · $2 elements · target WCAG $3 · axe $4",
+    "description": "$1 = scan time, $2 = element count, $3 = WCAG level, $4 = axe-core version."
+  },
+  "previewsActiveOne": { "message": "1 preview active" },
+  "previewsActiveOther": { "message": "$1 previews active" },
+  "btnRevertAll": { "message": "Revert all" },
+  "emptyResultTitle": { "message": "No automatically detectable issues found." },
+  "emptyResultBody": {
+    "message": "This is not a statement of conformance. Automated checks cover only part of WCAG — keyboard operation, meaningful alternative text, focus order and comprehensibility remain human judgement."
+  },
+  "sortedBySeverity": { "message": "Sorted by severity" },
+  "manualReviewNoteOne": {
+    "message": "1 point could not be decided automatically and needs a manual check."
+  },
+  "manualReviewNoteOther": {
+    "message": "$1 points could not be decided automatically and need a manual check."
+  },
+
+  "announceScanning": { "message": "Check in progress" },
+  "announceDone": {
+    "message": "Check complete: $1 issue groups, $2 points for manual review.",
+    "description": "Screen-reader announcement. $1 = cluster count, $2 = manual review count."
+  },
+  "announceError": { "message": "Check failed." },
+  "announceStale": { "message": "The page has changed. Please check again." },
+
+  "errorRestrictedPage": {
+    "message": "This page cannot be checked. Browser-internal pages, the Web Store and PDF documents are off limits to extensions."
+  },
+  "errorNoActiveTab": {
+    "message": "No active tab found. Please select a tab and check again."
+  },
+  "errorTabNotAccessible": {
+    "message": "This tab has not been granted. Click the VANTRA icon in the toolbar while the tab you want to check is in front — the extension is given access only when you ask for it, and only to that one tab.",
+    "description": "Shown when activeTab was never granted for the current tab."
+  },
+  "errorInjectionFailed": {
+    "message": "The check could not be started. Please reload the page and try again."
+  },
+  "errorAxeFailed": { "message": "The check was aborted. Details below." },
+
+  "privacyCaptures": {
+    "message": "To measure contrast, the extension photographs the visible part of the page. The captures are evaluated in memory, never stored and never transmitted — technically they could not be, see the policy below. The measurement can be switched off in the settings.",
+    "description": "Discloses the screenshot capability on the privacy page."
+  },
+
+  "settingsMeasureLegend": { "message": "Contrast measurement" },
+  "settingsMeasurePixelContrast": {
+    "message": "Measure undecidable contrast on the rendered page"
+  },
+  "settingsMeasurePixelContrastHint": {
+    "message": "When text sits on a gradient, an image or a pseudo element, its contrast cannot be computed from the CSS. The extension then photographs the visible area twice — once with and once without the text fill — and measures the surface at the text pixels themselves. The captures stay in memory. On long pages this adds a few seconds to a scan."
+  },
+  "measuredClearedNote": {
+    "message": "$1 undecidable contrast findings were measured on the rendered page and meet the requirement; they are not listed above.",
+    "description": "$1 = number of findings settled by pixel measurement."
+  },
+  "measuredClearedNoteOne": {
+    "message": "1 undecidable contrast finding was measured on the rendered page and meets the requirement; it is not listed above."
+  },
+  "scanningMeasuring": {
+    "message": "Measuring contrast on the rendered page …"
+  },
+
+  "undecidedPseudoContent": {
+    "message": "The background is painted by a ::before or ::after pseudo element — possibly on an ancestor. Their geometry is not exposed to scripts, so the contrast cannot be computed here. Check this spot in the browser against the surface that is actually visible. Usually a single CSS class is behind it.",
+    "description": "Manual guidance when axe declined because a pseudo element paints the background."
+  },
+  "undecidedBgImage": {
+    "message": "A background image sits behind the text. Check the contrast at the lightest and the darkest part of the image — both have to meet the threshold."
+  },
+  "undecidedBgGradient": {
+    "message": "A gradient sits behind the text. Check the contrast at both ends of the gradient."
+  },
+  "undecidedBgOverlap": {
+    "message": "Another element overlaps the text. Work out which surface actually sits behind the text and measure against that."
+  },
+  "undecidedImgNode": {
+    "message": "The text sits on top of an image element. Check the contrast against the lightest and darkest areas of the image beneath the text."
+  },
+  "undecidedFgAlpha": {
+    "message": "The text colour is partly transparent. The effective contrast depends on what shows through — make the colour opaque or check by hand."
+  },
+  "undecidedShortTextContent": {
+    "message": "The content is too short to be recognised as text with certainty. If it is real text, check the contrast by hand; if it is decoration, take it out of the text flow."
+  },
+  "undecidedEqualRatio": {
+    "message": "Text and background colour are identical (1:1) — the text is invisible. If that is intended, remove it from the text flow instead of hiding it with colour."
+  },
+  "undecidedComplexTextShadows": {
+    "message": "The text uses multiple shadows. The effective contrast comes from the shadows and the surface together and has to be checked by hand."
+  },
+
+  "countElementsOne": { "message": "1 element" },
+  "countElementsOther": { "message": "$1 elements" },
+  "countProposalsOne": { "message": "1 fix proposal" },
+  "countProposalsOther": { "message": "$1 fix proposals" },
+  "manualGuidanceTag": { "message": "manual guidance" },
+
+  "backToOverview": { "message": "Back to overview" },
+  "headingOccurrences": {
+    "message": "Affected elements ($1)",
+    "description": "$1 = number of affected elements."
+  },
+  "btnShowInPage": { "message": "Show on the page" },
+  "headingProposals": { "message": "Fix proposals" },
+  "btnPreviewApply": { "message": "Apply preview" },
+  "btnPreviewActive": { "message": "Preview active – revert" },
+  "btnCopyCode": { "message": "Copy code" },
+  "btnCopied": { "message": "Copied ✓" },
+  "editableHint": {
+    "message": "Adjust before you use it: only you know what the element actually triggers."
+  },
+  "headingManual": { "message": "Apply manually" },
+  "labelAxeRule": { "message": "axe rule" },
+
+  "diffCaption": { "message": "Comparison: current state and fix proposal" },
+  "diffColProperty": { "message": "Property" },
+  "diffColCurrent": { "message": "Current" },
+  "diffColProposed": { "message": "Proposed" },
+  "diffAbsent": {
+    "message": "(missing)",
+    "description": "Shown in the diff where an attribute does not exist yet."
+  },
+  "diffRemoved": {
+    "message": "(removed)",
+    "description": "Shown in the diff where the proposal deletes an attribute."
+  },
+  "metricContrast": { "message": "Contrast" },
+  "metricTarget": { "message": "target $1", "description": "$1 = required contrast ratio." },
+  "metricReached": { "message": "✓ reached" },
+  "metricNotReached": { "message": "✗ not reached" },
+
+  "settingsLevelLegend": { "message": "WCAG target level" },
+  "settingsLevelHint": {
+    "message": "Determines which axe rules run and which contrast the fix proposals aim for."
+  },
+  "settingsCategoriesLegend": { "message": "Categories" },
+  "settingsOverlayLegend": { "message": "Overlay" },
+  "settingsOverlayShowMarkers": { "message": "Show markers on the page" },
+  "settingsOverlayHighContrast": {
+    "message": "High-contrast markers (colour-blind friendly)"
+  },
+  "settingsFixLegend": { "message": "Fix proposals" },
+  "settingsPreferBackground": { "message": "Adjust the background first (instead of the text colour)" },
+  "settingsSnapPalette": { "message": "Snap to the approved palette" },
+  "settingsPaletteLabel": { "message": "Palette (hex values, comma separated)" },
+  "settingsModelHeading": { "message": "Local model" },
+  "settingsModelBody": {
+    "message": "From v2: a local vision model for alt-text proposals and contrast on background images. It will arrive as a download you start explicitly, with size and checksum — until then there is nothing to manage here."
+  },
+
+  "privacyLead": {
+    "message": "This extension sends no data. Every check runs in your browser."
+  },
+  "privacyTrust": {
+    "message": "You do not have to take our word for it — the browser enforces it. Below are the actual values from this installation's manifest."
+  },
+  "privacyCspLabel": { "message": "Content Security Policy" },
+  "privacyCspNote": {
+    "message": "$1 blocks every network request from this extension's pages — at browser level, not as a promise.",
+    "description": "$1 is rendered as inline code and contains the literal CSP directive."
+  },
+  "privacyPermissionsLabel": { "message": "Permissions" },
+  "privacyHostPermissionsLabel": { "message": "Host permissions" },
+  "privacyHostPermissionsNone": { "message": "none — access only to the tab you are checking" },
+  "privacyVerifyHeading": { "message": "Verify it yourself" },
+  "privacyVerifyStep1": {
+    "message": "Open $1 and click “service worker” on this extension.",
+    "description": "$1 is rendered as inline code and contains the literal URL chrome://extensions."
+  },
+  "privacyVerifyStep2": { "message": "Open the “Network” tab in the DevTools window." },
+  "privacyVerifyStep3": { "message": "Check a page. The request list stays empty." },
+  "privacyFooter": {
+    "message": "axe-core ships with the extension, it is not fetched. There is no analytics, no error reporting and no external fonts."
+  },
+
+  "overlayTooltip": {
+    "message": "$1 — details in the Vantra panel",
+    "description": "$1 = issue title. Shown on the in-page marker."
+  }
+}

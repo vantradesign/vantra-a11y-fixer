@@ -1,0 +1,44 @@
+@import 'tailwindcss';
+
+/**
+ * Vantra palette. Contrast pairings are verified in
+ * packages/a11y-math/tests/color.test.ts — cyan is an accent on dark surfaces
+ * only, never body text on the light background (it fails AA there).
+ */
+@theme {
+  --color-vantra-blue: #021f94;
+  --color-vantra-paper: #f5f2f3;
+  --color-vantra-cyan: #50e8f4;
+  --color-vantra-mist: #c7f8fe;
+  --color-vantra-ink: #001619;
+
+  --color-severity-critical: #a3122b;
+  --color-severity-high: #8a5e00;
+  --color-severity-medium: #021f94;
+  --color-severity-advisory: #3f4b50;
+  --color-severity-manual: #3f4b50;
+}
+
+@layer base {
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-size: 14px;
+  }
+
+  /* SC 2.4.13 Focus Appearance: a focus ring that is always visible against
+     both the paper and the ink surfaces. */
+  :focus-visible {
+    outline: 3px solid var(--color-vantra-blue);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

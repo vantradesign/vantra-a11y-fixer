@@ -1,0 +1,11 @@
+packages:
+  - 'apps/*'
+  - 'packages/*'
+
+strictPeerDependencies: false
+autoInstallPeers: true
+
+# esbuild ships platform-specific binaries through its postinstall script; Vite
+# and Vitest break without it.
+allowBuilds:
+  esbuild: true

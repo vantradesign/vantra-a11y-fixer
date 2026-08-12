@@ -1,0 +1,110 @@
+<!doctype html>
+<!--
+  Fixture with deliberately planted violations, one per case the fix engine
+  claims to handle. Every failure here is intentional and annotated — do not
+  "fix" this file.
+-->
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>Vantra A11y Fixture</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 24px;
+        background: #ffffff;
+        color: #001619;
+        font: 16px/1.5 system-ui, sans-serif;
+      }
+
+      /* ~3.05:1 on white — fails AA for body text (needs 4.5:1). */
+      .low-contrast {
+        color: #8a8a8a;
+        background: #ffffff;
+      }
+
+      /* Same computed pair as .low-contrast, so the engine must cluster these
+         three occurrences into a single finding. */
+      .low-contrast-twin {
+        color: #8a8a8a;
+        background: #ffffff;
+      }
+
+      /* A different failing pair, so it must NOT join the cluster above. */
+      .low-contrast-other {
+        color: #b0b0b0;
+        background: #ffffff;
+      }
+
+      /* Contrast over a gradient: axe cannot resolve a single background colour,
+         so this must land in the manual bucket rather than get a guessed fix. */
+      .on-gradient {
+        background: linear-gradient(90deg, #021f94, #50e8f4);
+        color: #8a8a8a;
+        padding: 8px;
+      }
+
+      /* 16x16 — below the 24x24 minimum of SC 2.5.8. */
+      .tiny-target {
+        width: 16px;
+        height: 16px;
+        padding: 0;
+        border: 0;
+        background: #021f94;
+        display: inline-block;
+      }
+
+      .ok-contrast {
+        color: #001619;
+        background: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 class="ok-contrast">Vantra A11y Fixture</h1>
+    </header>
+
+    <main>
+      <!-- color-contrast: three failing elements, two of them identical -->
+      <p class="low-contrast" id="contrast-a">Dieser Text hat zu wenig Kontrast.</p>
+      <p class="low-contrast-twin" id="contrast-b">Dieser Text ebenfalls, mit gleicher Farbe.</p>
+      <p class="low-contrast-other" id="contrast-c">Und dieser mit einer anderen Farbe.</p>
+
+      <!-- color-contrast, indeterminate: gradient background -->
+      <p class="on-gradient" id="contrast-gradient">Text auf einem Farbverlauf.</p>
+
+      <!-- button-name: no text, no aria-label, but an unambiguous icon class -->
+      <button id="icon-button" class="icon-close" type="button"></button>
+
+      <!-- button-name: no signal at all, so no proposal is possible -->
+      <button id="empty-button" type="button"></button>
+
+      <!-- image-alt -->
+      <img
+        id="no-alt"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        width="40"
+        height="40"
+      />
+
+      <!-- label: input with a visible text next to it but no association -->
+      <div>
+        <span>E-Mail-Adresse</span>
+        <input id="email-field" type="email" placeholder="name@example.com" />
+      </div>
+
+      <!-- target-size: standalone control below the minimum -->
+      <button id="tiny" class="tiny-target" type="button" aria-label="Schließen"></button>
+
+      <!-- target-size exception: inline link inside running text. Enlarging this
+           would break the paragraph, so no proposal may be offered. -->
+      <p class="ok-contrast">
+        Ein Satz mit einem <a id="inline-link" href="#x">Link</a> mitten im Text.
+      </p>
+
+      <!-- A div acting as a button: role/native-element heuristic -->
+      <div id="fake-button" role="button" onclick="void 0">Klick mich</div>
+    </main>
+  </body>
+</html>

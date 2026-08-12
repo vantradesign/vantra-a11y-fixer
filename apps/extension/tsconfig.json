@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "types": ["chrome"],
+    "jsx": "preserve"
+  },
+  "include": ["src", "tests", "vite.config.ts", "vite.content.config.ts"]
+}
