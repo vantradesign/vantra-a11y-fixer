@@ -4,7 +4,7 @@
   "private": true,
   "description": "Browser extension that detects contrast and ARIA issues and generates concrete, copyable fix proposals — fully local, no network calls.",
   "license": "MPL-2.0",
-  "author": "Vantra Design <vantra@kauper.co>",
+  "author": "Vantra Design <hello@vantra.design>",
   "homepage": "https://github.com/vantradesign/vantra-a11y-fixer#readme",
   "repository": {
     "type": "git",
