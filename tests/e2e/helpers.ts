@@ -22,6 +22,7 @@ export const E2E_SETTINGS: Settings = {
   // on its own. The specs that exercise it turn it on and supply one.
   measurePixelContrast: false,
   fixPreferences: { preferAdjusting: 'foreground', snapToPalette: false, palette: [] },
+  empathy: { speechRate: 1.0, speechPitch: 1.0 },
 }
 
 export const REPO_ROOT = resolve(import.meta.dirname, '../..')
