@@ -431,5 +431,48 @@
   "overlayTooltip": {
     "message": "$1 — Details im Vantra-Panel",
     "description": "$1 = issue title. Shown on the in-page marker."
-  }
+  },
+
+  "navEmpathy": { "message": "Empathie" },
+
+  "empathyIdleTitle": { "message": "Screenreader-Empathie" },
+  "empathyIdleBody": { "message": "Erlebe die Seite so, wie sie ein Screenreader vorliest: Lesereihenfolge, Landmarken, Überschriftenstruktur und fehlende Namen." },
+  "empathyBtnAnalyze": { "message": "Seite analysieren" },
+  "empathyAnalyzing": { "message": "Zugänglichkeitsstruktur wird analysiert …" },
+
+  "empathyAnnounceAnalyzing": { "message": "Empathie-Analyse läuft." },
+  "empathyAnnounceDone": {
+    "message": "Empathie-Analyse fertig: $1 Elemente, $2 Probleme.",
+    "description": "$1 = element count, $2 = issue count"
+  },
+
+  "empathyBtnPlay": { "message": "Vorlesen" },
+  "empathyBtnResume": { "message": "Fortsetzen" },
+  "empathyBtnPause": { "message": "Pause" },
+  "empathyBtnStop": { "message": "Stopp" },
+
+  "empathyBand": { "message": "Bewertung" },
+  "empathyStatElements": { "message": "Elemente" },
+  "empathyStatLandmarks": { "message": "Landmarken" },
+  "empathyStatBeforeMain": { "message": "vor Main" },
+  "empathyStatIssues": { "message": "Probleme" },
+
+  "empathyTabStructure": { "message": "Struktur" },
+  "empathyTabReading": { "message": "Lesereihenfolge" },
+
+  "empathyHeadingIssues": { "message": "Erkannte Probleme" },
+  "empathyHeadingOutline": { "message": "Überschriften-Gliederung" },
+  "empathyHeadingLandmarks": { "message": "Landmarken" },
+  "empathyNoIssues": { "message": "Keine strukturellen Probleme erkannt." },
+  "empathyNoLabel": { "message": "(ohne Label)" },
+  "empathyMissingName": { "message": "Name fehlt" },
+  "empathyWithFlags": { "message": "mit Problemen" },
+
+  "empathyErrorNoTab": { "message": "Kein aktiver Tab gefunden." },
+  "empathyErrorNotAccessible": { "message": "Tab ist nicht zugänglich — bitte Erweiterung erneut auf dem Tab aktivieren." },
+
+  "settingsEmpathyLegend": { "message": "Screenreader-Empathie" },
+  "settingsEmpathyHint": { "message": "Stimme und Geschwindigkeit für die Vorlese-Funktion. Verwendet die Sprachsynthese des Betriebssystems." },
+  "settingsEmpathyRate": { "message": "Geschwindigkeit" },
+  "settingsEmpathyPitch": { "message": "Tonhöhe" }
 }

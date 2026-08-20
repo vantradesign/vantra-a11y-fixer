@@ -4,9 +4,20 @@
 
 import { analyse } from '@vantra-a11y/fix-engine'
 import type { IssueCluster, PageMessage, PanelMessage, Settings } from '@vantra-a11y/protocol'
+import type { EmpathyPanelMessage } from '../shared/empathy-types.js'
 
 import { PreviewApplier } from './applier.js'
 import { runAxe } from './axe-runner.js'
+import {
+  destroyEmpathy,
+  highlightEntry,
+  pauseEmpathy,
+  playEmpathy,
+  runEmpathy,
+  seekEmpathy,
+  stopEmpathy,
+  updateEmpathySettings,
+} from './empathy.js'
 import { measureContrast } from './measure-contrast.js'
 import { Overlay } from './overlay.js'
 
@@ -98,7 +109,7 @@ async function scan(settings: Settings): Promise<void> {
   }
 }
 
-chrome.runtime.onMessage.addListener((message: PanelMessage, _sender, respond) => {
+chrome.runtime.onMessage.addListener((message: PanelMessage | EmpathyPanelMessage, _sender, respond) => {
   switch (message.type) {
     case 'SCAN_START':
       void scan(message.settings)
@@ -133,6 +144,42 @@ chrome.runtime.onMessage.addListener((message: PanelMessage, _sender, respond) =
     case 'SETTINGS_CHANGED':
       lastSettings = message.settings
       overlay.render(lastClusters, message.settings)
+      updateEmpathySettings(
+        message.settings.empathy.speechRate,
+        message.settings.empathy.speechPitch,
+      )
+      respond({ ok: true })
+      return false
+
+    // ── Empathy messages ──
+
+    case 'EMPATHY_START':
+      runEmpathy()
+      respond({ ok: true })
+      return false
+
+    case 'EMPATHY_PLAY':
+      void playEmpathy()
+      respond({ ok: true })
+      return false
+
+    case 'EMPATHY_PAUSE':
+      pauseEmpathy()
+      respond({ ok: true })
+      return false
+
+    case 'EMPATHY_STOP':
+      stopEmpathy()
+      respond({ ok: true })
+      return false
+
+    case 'EMPATHY_SEEK':
+      seekEmpathy((message as { type: 'EMPATHY_SEEK'; index: number }).index)
+      respond({ ok: true })
+      return false
+
+    case 'EMPATHY_HIGHLIGHT':
+      highlightEntry((message as { type: 'EMPATHY_HIGHLIGHT'; selector: string }).selector)
       respond({ ok: true })
       return false
 
@@ -160,6 +207,7 @@ window.setInterval(() => {
 window.addEventListener('pagehide', () => {
   applier.revertAll()
   overlay.destroy()
+  destroyEmpathy()
 })
 
 // Restore the overlay if the panel already had settings when we were injected.

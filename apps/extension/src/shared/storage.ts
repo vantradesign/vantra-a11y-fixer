@@ -23,6 +23,7 @@ export async function loadSettings(): Promise<Settings> {
     ...value,
     overlay: { ...DEFAULT_SETTINGS.overlay, ...value.overlay },
     fixPreferences: { ...DEFAULT_SETTINGS.fixPreferences, ...value.fixPreferences },
+    empathy: { ...DEFAULT_SETTINGS.empathy, ...value.empathy },
   }
 }
 

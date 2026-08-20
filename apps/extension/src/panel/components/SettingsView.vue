@@ -7,6 +7,7 @@
 import type { Category, Settings, WcagLevel } from '@vantra-a11y/protocol'
 
 import { CATEGORY_KEY, t } from '../../shared/i18n.js'
+import type { MessageKey } from '../../shared/i18n.js'
 
 const props = defineProps<{ settings: Settings }>()
 const emit = defineEmits<{ update: [settings: Settings] }>()
@@ -181,6 +182,57 @@ function toggleCategory(category: Category, enabled: boolean): void {
             })
           "
         />
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend class="text-[13px] font-semibold">{{ t('settingsEmpathyLegend' as MessageKey) }}</legend>
+      <p class="mt-1 text-[12px] text-vantra-ink/70">{{ t('settingsEmpathyHint' as MessageKey) }}</p>
+
+      <label class="mt-2 block text-[13px]">
+        <span class="block">{{ t('settingsEmpathyRate' as MessageKey) }}</span>
+        <div class="mt-1 flex items-center gap-2">
+          <input
+            type="range"
+            min="0.5"
+            max="2"
+            step="0.1"
+            class="flex-1"
+            :value="settings.empathy.speechRate"
+            @input="
+              patch({
+                empathy: {
+                  ...settings.empathy,
+                  speechRate: parseFloat(($event.target as HTMLInputElement).value),
+                },
+              })
+            "
+          />
+          <span class="w-8 text-right font-mono text-[12px]">{{ settings.empathy.speechRate.toFixed(1) }}</span>
+        </div>
+      </label>
+
+      <label class="mt-2 block text-[13px]">
+        <span class="block">{{ t('settingsEmpathyPitch' as MessageKey) }}</span>
+        <div class="mt-1 flex items-center gap-2">
+          <input
+            type="range"
+            min="0"
+            max="2"
+            step="0.1"
+            class="flex-1"
+            :value="settings.empathy.speechPitch"
+            @input="
+              patch({
+                empathy: {
+                  ...settings.empathy,
+                  speechPitch: parseFloat(($event.target as HTMLInputElement).value),
+                },
+              })
+            "
+          />
+          <span class="w-8 text-right font-mono text-[12px]">{{ settings.empathy.speechPitch.toFixed(1) }}</span>
+        </div>
       </label>
     </fieldset>
 

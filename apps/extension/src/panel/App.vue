@@ -8,20 +8,23 @@ import { computed, ref } from 'vue'
 import type { Category } from '@vantra-a11y/protocol'
 
 import ClusterCard from './components/ClusterCard.vue'
+import EmpathyView from './components/EmpathyView.vue'
 import IssueDetail from './components/IssueDetail.vue'
 import NetworkZero from './components/NetworkZero.vue'
 import SettingsView from './components/SettingsView.vue'
+import { useEmpathy } from './composables/useEmpathy.js'
 import { useScan } from './composables/useScan.js'
 import { CATEGORY_KEY, plural, t } from '../shared/i18n.js'
 import type { MessageKey } from '../shared/i18n.js'
 import { CATEGORY_GLYPH } from './labels.js'
 
-type View = 'overview' | 'settings' | 'privacy'
+type View = 'overview' | 'empathy' | 'settings' | 'privacy'
 
-const VIEWS: View[] = ['overview', 'settings', 'privacy']
+const VIEWS: View[] = ['overview', 'empathy', 'settings', 'privacy']
 
 const VIEW_KEY: Record<View, MessageKey> = {
   overview: 'navOverview',
+  empathy: 'navEmpathy' as MessageKey,
   settings: 'navSettings',
   privacy: 'navPrivacy',
 }
@@ -46,6 +49,8 @@ const {
   togglePreview,
   revertAll,
 } = useScan()
+
+const empathy = useEmpathy()
 
 const view = ref<View>('overview')
 
@@ -130,6 +135,9 @@ function toggleFilter(category: Category): void {
       </nav>
     </header>
 
+    <!-- Empathy status for screen readers -->
+    <p aria-live="polite" class="sr-only">{{ empathy.announcement.value }}</p>
+
     <main class="flex-1">
       <SettingsView
         v-if="view === 'settings'"
@@ -138,6 +146,43 @@ function toggleFilter(category: Category): void {
       />
 
       <NetworkZero v-else-if="view === 'privacy'" />
+
+      <!-- Empathy view -->
+      <div v-else-if="view === 'empathy'">
+        <div v-if="empathy.state.value === 'idle'" class="px-3 py-6 text-[13px] leading-relaxed">
+          <p class="font-medium">{{ t('empathyIdleTitle' as MessageKey) }}</p>
+          <p class="mt-1.5 text-vantra-ink/80">{{ t('empathyIdleBody' as MessageKey) }}</p>
+          <button
+            type="button"
+            class="mt-3 min-h-8 rounded bg-vantra-blue px-3 py-1 text-[13px] font-medium text-white hover:bg-vantra-ink"
+            @click="empathy.analyze()"
+          >
+            {{ t('empathyBtnAnalyze' as MessageKey) }}
+          </button>
+        </div>
+
+        <div v-else-if="empathy.state.value === 'analyzing'" class="px-3 py-6 text-[13px]">
+          <p>{{ t('empathyAnalyzing' as MessageKey) }}</p>
+        </div>
+
+        <div v-else-if="empathy.state.value === 'error'" class="px-3 py-6 text-[13px] leading-relaxed">
+          <p class="font-medium">{{ t('errorTitle') }}</p>
+          <p class="mt-1.5 text-vantra-ink/80">{{ empathy.errorDetail.value }}</p>
+        </div>
+
+        <EmpathyView
+          v-else-if="empathy.traversal.value && empathy.structure.value"
+          :traversal="empathy.traversal.value"
+          :structure="empathy.structure.value"
+          :playback="empathy.playback.value"
+          :current-index="empathy.currentIndex.value"
+          @play="empathy.play()"
+          @pause="empathy.pause()"
+          @stop="empathy.stop()"
+          @seek="empathy.seekTo($event)"
+          @highlight="empathy.highlightInPage($event)"
+        />
+      </div>
 
       <IssueDetail
         v-else-if="activeCluster"

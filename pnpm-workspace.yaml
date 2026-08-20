@@ -9,3 +9,11 @@ autoInstallPeers: true
 # and Vitest break without it.
 allowBuilds:
   esbuild: true
+  # Transitive deps from @vantra-design/screenreader-empathy → local-inference.
+  # Extension only imports ./core (no ONNX, no sharp), so build scripts unneeded.
+  onnxruntime-node: false
+  protobufjs: false
+  sharp: false
+
+minimumReleaseAgeExclude:
+  - '@vantra-design/screenreader-empathy@0.3.0'

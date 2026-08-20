@@ -431,5 +431,48 @@
   "overlayTooltip": {
     "message": "$1 — details in the Vantra panel",
     "description": "$1 = issue title. Shown on the in-page marker."
-  }
+  },
+
+  "navEmpathy": { "message": "Empathy" },
+
+  "empathyIdleTitle": { "message": "Screen Reader Empathy" },
+  "empathyIdleBody": { "message": "Experience the page the way a screen reader narrates it: reading order, landmarks, heading structure, and missing names." },
+  "empathyBtnAnalyze": { "message": "Analyze page" },
+  "empathyAnalyzing": { "message": "Analyzing accessibility structure…" },
+
+  "empathyAnnounceAnalyzing": { "message": "Empathy analysis running." },
+  "empathyAnnounceDone": {
+    "message": "Empathy analysis complete: $1 elements, $2 issues.",
+    "description": "$1 = element count, $2 = issue count"
+  },
+
+  "empathyBtnPlay": { "message": "Read aloud" },
+  "empathyBtnResume": { "message": "Resume" },
+  "empathyBtnPause": { "message": "Pause" },
+  "empathyBtnStop": { "message": "Stop" },
+
+  "empathyBand": { "message": "Rating" },
+  "empathyStatElements": { "message": "elements" },
+  "empathyStatLandmarks": { "message": "landmarks" },
+  "empathyStatBeforeMain": { "message": "before main" },
+  "empathyStatIssues": { "message": "issues" },
+
+  "empathyTabStructure": { "message": "Structure" },
+  "empathyTabReading": { "message": "Reading order" },
+
+  "empathyHeadingIssues": { "message": "Issues found" },
+  "empathyHeadingOutline": { "message": "Heading outline" },
+  "empathyHeadingLandmarks": { "message": "Landmarks" },
+  "empathyNoIssues": { "message": "No structural issues found." },
+  "empathyNoLabel": { "message": "(no label)" },
+  "empathyMissingName": { "message": "missing name" },
+  "empathyWithFlags": { "message": "with issues" },
+
+  "empathyErrorNoTab": { "message": "No active tab found." },
+  "empathyErrorNotAccessible": { "message": "Tab is not accessible — please activate the extension on the tab again." },
+
+  "settingsEmpathyLegend": { "message": "Screen Reader Empathy" },
+  "settingsEmpathyHint": { "message": "Voice and speed for the read-aloud feature. Uses the operating system's speech synthesis." },
+  "settingsEmpathyRate": { "message": "Speed" },
+  "settingsEmpathyPitch": { "message": "Pitch" }
 }

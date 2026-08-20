@@ -17,6 +17,7 @@
     "@vantra-a11y/fix-engine": "workspace:*",
     "@vantra-a11y/math": "workspace:*",
     "@vantra-a11y/protocol": "workspace:*",
+    "@vantra-design/screenreader-empathy": "^0.3.0",
     "axe-core": "^4.10.3",
     "vue": "^3.5.41"
   },

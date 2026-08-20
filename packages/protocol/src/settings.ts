@@ -31,6 +31,12 @@ export interface Settings {
     /** Hex values of the allowed palette, used only when `snapToPalette` is on. */
     palette: string[]
   }
+  empathy: {
+    /** Speech rate for Web Speech API playback (0.5–2.0). */
+    speechRate: number
+    /** Speech pitch (0.0–2.0). */
+    speechPitch: number
+  }
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -46,6 +52,10 @@ export const DEFAULT_SETTINGS: Settings = {
     preferAdjusting: 'foreground',
     snapToPalette: false,
     palette: [],
+  },
+  empathy: {
+    speechRate: 1.0,
+    speechPitch: 1.0,
   },
 }
 
